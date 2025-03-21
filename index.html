@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Digital Portfolio</title>
+    
+
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Internal CSS -->
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Italianno&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        body {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+       
+        nav {
+            background: linear-gradient(lightblue,pink);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 10px 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f0f8ff;
+        }
+
+        nav ul li a:active {
+            color: #ff9800;
+        }
+
+        header {
+            color: white;
+            text-align: center;
+            padding: 80px 0 20px 0;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px; 
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .header-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .header-img:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        section {
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #007acc;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            height: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            text-align: center;
+            color: white;
+            line-height: 20px;
+            border-radius: 8px;
+        }
+
+        .progress-bar.soft-skills {
+            background-color: #4caf50;
+        }
+
+        .progress-bar.technical-skills {
+            background-color: #ff9800;
+        }
+
+        .progress-bar.additional-skills {
+            background-color: #f44336;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #293034;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #005f99;
+        }
+
+        .contact-icons i {
+            font-size: 2em;
+            margin: 10px;
+            color: #007acc;
+        }
+
+        .contact-icons i:hover {
+            color: #000305;
+        }
+
+        footer {
+            background-color: #007acc;
+            color: white;
+            text-align: center;
+            padding: 1px;
+            position: relative;
+            width: 100%;
+        }
+
+        
+        .scroll-effect {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .scroll-effect.visible {
+            opacity: 1;
+        }
+
+    
+        html {
+            scroll-behavior: smooth;
+        }
+
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #007acc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .contact-form button {
+            background-color: #007acc;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #005f99;
+        }
+
+    
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+    
+    .scroll-effect {
+    opacity: 0;  
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+    
+    .scroll-effect.visible {
+    opacity: 1;
+    animation: fadeIn 1s forwards; 
+}
+
+
+    </style>
+</head>
+
+<body>
+
+
+  
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#hire-me">Hire Me</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+           
+            <li><a href="resume.jpg" download class="btn">Download Resume</a></li>
+        </ul>
+    </nav>
+
+    
+    <header>
+        <img src="profile.jpg" alt="Your Picture" class="header-img" />
+    </header>
+
+    <div class="container">
+        
+        <section id="about" class="scroll-effect">
+            <h2 class="section-title">About Me</h2>
+            <p>A passionate and dedicated web developer with intermediate technical skills and a strong desire to continuously learn and grow. 
+                Experienced in building responsive, user-friendly websites using HTML, CSS, and JavaScript, with a focus on front-end development.
+                 Proficient in version control systems like Git, and always eager to explore new technologies.</p>
+        </section>
+
+        
+        <section id="skills" class="scroll-effect">
+            <h2 class="section-title">Skills</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar soft-skills" style="width: 85%;"><b>Communication 85%</b></div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar technical-skills" style="width: 70%;"><b>HTML/CSS 75%</b></div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar additional-skills" style="width: 80%;"><b>Java 80%</b></div>
+            </div>
+        </section>
+            
+
+        
+        <section id="hire-me" class="scroll-effect">
+            <h2 class="section-title">Hire Me</h2>
+            <p>If you are looking for someone passionate and dedicated to work with, I would be delighted to join your team. You can contact me for any opportunities.</p>
+            <a href="#contact" class="btn">Contact Me</a>
+        </section>
+
+        
+        <section id="contact" class="scroll-effect">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-icons">
+                <a href="mailto:abhii16377.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.instagram.com/abhiii16377?utm_source=qr&igsh=MTdyb2s5d3Y4Y2Nraw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/+919345657244" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://github.com/abhii16377" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+
+            
+            <form class="contact-form">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Maidhili!. All rights reserved.</p>
+    </footer>
+
+   
+    <script>
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.scroll-effect');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
